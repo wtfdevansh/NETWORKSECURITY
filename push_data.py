@@ -50,11 +50,10 @@ class networkDataExtract():
 
 
 
-
-
-
-
-
-
-
+if __name__ == '__main__':
+    FILE_PATH = 'Network_Data/phisingData.csv'
+    obj = networkDataExtract("devanshAI" , "NetworkData")
+    records = obj.cv_to_json(FILE_PATH)
+    no_of_records = obj.insert_data(records)
+    print(no_of_records)
 
