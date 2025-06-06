@@ -1,0 +1,13 @@
+[2025-06-06 17:14:17,510] 12 - root - INFO - Starting the Network Security Pipeline
+[2025-06-06 17:14:17,510] 16 - root - INFO - Training Pipeline Config: <src.entity.config_entity.trainingPipelineConfig object at 0x7fc8c20d65d0>
+[2025-06-06 17:14:17,510] 20 - root - INFO - Data Ingestion Config: <src.entity.config_entity.dataIngestionConfig object at 0x7fc87b0523c0>
+[2025-06-06 17:14:17,510] 29 - root - INFO - Data Ingestion Config: <src.entity.config_entity.dataIngestionConfig object at 0x7fc87aff3ed0>
+[2025-06-06 17:14:20,796] 41 - root - INFO - Raw data fetched from MongoDB: (11055, 32)
+[2025-06-06 17:14:20,797] 45 - root - INFO - Dropped '_id' column from DataFrame
+[2025-06-06 17:14:20,841] 61 - root - INFO - Raw data exported to artifacts/2025-06-06-17-14-16/2025-06-06-17-14-16/feature_store/phisingData.csv
+[2025-06-06 17:14:20,843] 71 - root - INFO - Train DataFrame Shape: (8844, 31)
+[2025-06-06 17:14:20,843] 72 - root - INFO - Test DataFrame Shape: (2211, 31)
+[2025-06-06 17:14:20,843] 75 - root - INFO - Train File Path: artifacts/2025-06-06-17-14-16/2025-06-06-17-14-16/ingested/test.csv
+[2025-06-06 17:14:20,843] 76 - root - INFO - Test File Path: artifacts/2025-06-06-17-14-16/2025-06-06-17-14-16/ingested/train.csv
+[2025-06-06 17:14:20,877] 81 - root - INFO - Train and test datasets created: artifacts/2025-06-06-17-14-16/2025-06-06-17-14-16/ingested/test.csv, artifacts/2025-06-06-17-14-16/2025-06-06-17-14-16/ingested/train.csv
+[2025-06-06 17:14:20,877] 98 - root - INFO - Artifacts Entity: ArtifactsEntity(train_file_path='artifacts/2025-06-06-17-14-16/2025-06-06-17-14-16/ingested/test.csv', test_file_path='artifacts/2025-06-06-17-14-16/2025-06-06-17-14-16/ingested/train.csv')

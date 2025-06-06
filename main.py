@@ -1,8 +1,10 @@
-from src.exception import networkException
-from src.logging import logging
+from src.exception.exception import networkException
+from src.logging.logger import logging
 from src.entity.config_entity import trainingPipelineConfig, dataIngestionConfig
 from src.entity.artifacts_entity import ArtifactsEntity
 from src.components.data_ingestion import DataIngestion
+
+import sys
 
 
 if __name__ == "__main__":
@@ -18,7 +20,7 @@ if __name__ == "__main__":
         logging.info(f"Data Ingestion Config: {data_ingestion_config}")
         
         # Create an instance of DataIngestion
-        data_ingestion = DataIngestion(data_ingestion_config)
+        data_ingestion = DataIngestion()
 
         artifacts = data_ingestion.initiate_data_ingestion()
 

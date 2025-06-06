@@ -8,8 +8,10 @@ from src.exception.exception import networkException
 from src.logging.logger import logging
 from src.entity.config_entity import dataIngestionConfig
 from src.entity.artifacts_entity import ArtifactsEntity
+from src.entity.config_entity import trainingPipelineConfig
 
-data_ingestion_config_obj = dataIngestionConfig()
+trainingPipelineConfig = trainingPipelineConfig()
+
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -23,7 +25,7 @@ ca = certifi.where()
 class  DataIngestion:
     def __init__(self):
         try:
-            self.data_ingestion_config = dataIngestionConfig()
+            self.data_ingestion_config = dataIngestionConfig(training_pipeline_config=trainingPipelineConfig)
             logging.info(f"Data Ingestion Config: {self.data_ingestion_config}")
         except Exception as e:
             raise networkException(e, sys)
@@ -53,8 +55,8 @@ class  DataIngestion:
     def export_raw_data(self , df: pd.DataFrame):
       try:
         FILE_PATH = self.data_ingestion_config.feature_store_dir
-        FILE_PATH = os.path.join(FILE_PATH, self.data_ingestion_config.file_name)
-        os.makedirs(FILE_PATH , exist_ok=True)
+        FILE_PATH = os.path.join(FILE_PATH, self.data_ingestion_config.training_pipeline_config.file_name)
+        os.makedirs(os.path.dirname(FILE_PATH) , exist_ok=True)
         df.to_csv(FILE_PATH , index=False)
         logging.info(f"Raw data exported to {FILE_PATH}")
       except Exception as e:
@@ -89,12 +91,12 @@ class  DataIngestion:
             self.export_raw_data(dataframe)
             self.train_test_split_and_save(dataframe)
 
-            ArtifactsEntity = ArtifactsEntity(
+            Artifacts = ArtifactsEntity(
                 train_file_path=self.data_ingestion_config.train_file_path,
                 test_file_path=self.data_ingestion_config.test_file_path
             )
-            logging.info(f"Artifacts Entity: {ArtifactsEntity}")
-            return ArtifactsEntity
+            logging.info(f"Artifacts Entity: {Artifacts}")
+            return Artifacts
         except Exception as e:
             raise networkException(e, sys)
 

@@ -1,0 +1,6 @@
+[2025-06-06 17:08:59,687] 12 - root - INFO - Starting the Network Security Pipeline
+[2025-06-06 17:08:59,687] 16 - root - INFO - Training Pipeline Config: <src.entity.config_entity.trainingPipelineConfig object at 0x7f9ab55b25d0>
+[2025-06-06 17:08:59,687] 20 - root - INFO - Data Ingestion Config: <src.entity.config_entity.dataIngestionConfig object at 0x7f9a6e54a3c0>
+[2025-06-06 17:08:59,687] 29 - root - INFO - Data Ingestion Config: <src.entity.config_entity.dataIngestionConfig object at 0x7f9a6e4ebed0>
+[2025-06-06 17:09:02,507] 41 - root - INFO - Raw data fetched from MongoDB: (11055, 32)
+[2025-06-06 17:09:02,508] 45 - root - INFO - Dropped '_id' column from DataFrame
