@@ -7,6 +7,7 @@ import numpy as np
 from src.exception.exception import networkException
 from src.logging.logger import logging
 from src.entity.config_entity import dataIngestionConfig
+from src.entity.artifacts_entity import ArtifactsEntity
 
 data_ingestion_config_obj = dataIngestionConfig()
 
@@ -87,6 +88,13 @@ class  DataIngestion:
             dataframe = self.get_raw_data()
             self.export_raw_data(dataframe)
             self.train_test_split_and_save(dataframe)
+
+            ArtifactsEntity = ArtifactsEntity(
+                train_file_path=self.data_ingestion_config.train_file_path,
+                test_file_path=self.data_ingestion_config.test_file_path
+            )
+            logging.info(f"Artifacts Entity: {ArtifactsEntity}")
+            return ArtifactsEntity
         except Exception as e:
             raise networkException(e, sys)
 

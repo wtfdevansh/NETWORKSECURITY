@@ -33,9 +33,9 @@ class dataIngestionConfig:
 
         self.data_ingestion_dir = os.path.join(self.training_pipeline_config.artifact_dir, training_pipeline.DATA_INGESTION_DIR_NAME)
 
-        self.feature_store_dir = os.path.join(self.training_pipeline_config.artifact_dir,  training_pipeline.DATA_INGESTION_FEATURE_STORE_DIR_NAME)
+        self.feature_store_dir = os.path.join(self.training_pipeline_config.artifact_dir, training_pipeline_config.timestamp, training_pipeline.DATA_INGESTION_FEATURE_STORE_DIR_NAME)
 
-        self.ingested_dir = os.path.join(self.training_pipeline_config.artifact_dir, training_pipeline.DATA_INGESTION_INGESTED_DIR_NAME)
+        self.ingested_dir = os.path.join(self.training_pipeline_config.artifact_dir, training_pipeline_config.timestamp, training_pipeline.DATA_INGESTION_INGESTED_DIR_NAME)
 
         self.train_file_path = os.path.join(self.ingested_dir, self.training_pipeline_config.train_file_name)
 
