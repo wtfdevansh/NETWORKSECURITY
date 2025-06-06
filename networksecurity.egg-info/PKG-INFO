@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: networksecurity
+Version: 0.1.0
+Summary: A package for network security analysis and monitoring
+Author: devansh
+Author-email: mrdivu7@gmail.com
+Requires-Dist: python-dotenv
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: pymongo
+Requires-Dist: certifi
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: summary
