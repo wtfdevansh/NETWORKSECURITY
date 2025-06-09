@@ -1,0 +1,23 @@
+[2025-06-09 11:36:23,436] 15 - root - INFO - Starting the Network Security Pipeline
+[2025-06-09 11:36:23,436] 19 - root - INFO - Training Pipeline Config: <src.entity.config_entity.trainingPipelineConfig object at 0x7f3ced7c3ed0>
+[2025-06-09 11:36:23,436] 23 - root - INFO - Data Ingestion Config: <src.entity.config_entity.dataIngestionConfig object at 0x7f3ced81a120>
+[2025-06-09 11:36:23,436] 29 - root - INFO - Data Ingestion Config: <src.entity.config_entity.dataIngestionConfig object at 0x7f3cecd89450>
+[2025-06-09 11:36:26,242] 41 - root - INFO - Raw data fetched from MongoDB: (11055, 32)
+[2025-06-09 11:36:26,243] 45 - root - INFO - Dropped '_id' column from DataFrame
+[2025-06-09 11:36:26,289] 61 - root - INFO - Raw data exported to artifacts/data_ingestion/2025-06-09-11-36-22/feature_store/phisingData.csv
+[2025-06-09 11:36:26,291] 71 - root - INFO - Train DataFrame Shape: (8844, 31)
+[2025-06-09 11:36:26,291] 72 - root - INFO - Test DataFrame Shape: (2211, 31)
+[2025-06-09 11:36:26,291] 75 - root - INFO - Train File Path: artifacts/data_ingestion/2025-06-09-11-36-22/ingested/test.csv
+[2025-06-09 11:36:26,291] 76 - root - INFO - Test File Path: artifacts/data_ingestion/2025-06-09-11-36-22/ingested/train.csv
+[2025-06-09 11:36:26,325] 81 - root - INFO - Train and test datasets created: artifacts/data_ingestion/2025-06-09-11-36-22/ingested/test.csv, artifacts/data_ingestion/2025-06-09-11-36-22/ingested/train.csv
+[2025-06-09 11:36:26,325] 98 - root - INFO - Artifacts Entity: ArtifactsEntity(train_file_path='artifacts/data_ingestion/2025-06-09-11-36-22/ingested/test.csv', test_file_path='artifacts/data_ingestion/2025-06-09-11-36-22/ingested/train.csv')
+[2025-06-09 11:36:26,341] 35 - root - INFO - Expected number of columns: 31
+[2025-06-09 11:36:26,342] 36 - root - INFO - Actual number of columns: 31
+[2025-06-09 11:36:26,342] 35 - root - INFO - Expected number of columns: 31
+[2025-06-09 11:36:26,342] 36 - root - INFO - Actual number of columns: 31
+[2025-06-09 11:36:26,342] 55 - root - INFO - Expected numerical columns: ['having_IP_Address', 'URL_Length', 'Shortining_Service', 'having_At_Symbol', 'double_slash_redirecting', 'Prefix_Suffix', 'having_Sub_Domain', 'SSLfinal_State', 'Domain_registeration_length', 'Favicon', 'port', 'HTTPS_token', 'Request_URL', 'URL_of_Anchor', 'Links_in_tags', 'SFH', 'Submitting_to_email', 'Abnormal_URL', 'Redirect', 'on_mouseover', 'RightClick', 'popUpWidnow', 'Iframe', 'age_of_domain', 'DNSRecord', 'web_traffic', 'Page_Rank', 'Google_Index', 'Links_pointing_to_page', 'Statistical_report', 'Result']
+[2025-06-09 11:36:26,342] 56 - root - INFO - Actual numerical columns: ['having_IP_Address', 'URL_Length', 'Shortining_Service', 'having_At_Symbol', 'double_slash_redirecting', 'Prefix_Suffix', 'having_Sub_Domain', 'SSLfinal_State', 'Domain_registeration_length', 'Favicon', 'port', 'HTTPS_token', 'Request_URL', 'URL_of_Anchor', 'Links_in_tags', 'SFH', 'Submitting_to_email', 'Abnormal_URL', 'Redirect', 'on_mouseover', 'RightClick', 'popUpWidnow', 'Iframe', 'age_of_domain', 'DNSRecord', 'web_traffic', 'Page_Rank', 'Google_Index', 'Links_pointing_to_page', 'Statistical_report', 'Result']
+[2025-06-09 11:36:26,342] 60 - root - INFO - Numerical columns validation passed.
+[2025-06-09 11:36:26,343] 55 - root - INFO - Expected numerical columns: ['having_IP_Address', 'URL_Length', 'Shortining_Service', 'having_At_Symbol', 'double_slash_redirecting', 'Prefix_Suffix', 'having_Sub_Domain', 'SSLfinal_State', 'Domain_registeration_length', 'Favicon', 'port', 'HTTPS_token', 'Request_URL', 'URL_of_Anchor', 'Links_in_tags', 'SFH', 'Submitting_to_email', 'Abnormal_URL', 'Redirect', 'on_mouseover', 'RightClick', 'popUpWidnow', 'Iframe', 'age_of_domain', 'DNSRecord', 'web_traffic', 'Page_Rank', 'Google_Index', 'Links_pointing_to_page', 'Statistical_report', 'Result']
+[2025-06-09 11:36:26,343] 56 - root - INFO - Actual numerical columns: ['having_IP_Address', 'URL_Length', 'Shortining_Service', 'having_At_Symbol', 'double_slash_redirecting', 'Prefix_Suffix', 'having_Sub_Domain', 'SSLfinal_State', 'Domain_registeration_length', 'Favicon', 'port', 'HTTPS_token', 'Request_URL', 'URL_of_Anchor', 'Links_in_tags', 'SFH', 'Submitting_to_email', 'Abnormal_URL', 'Redirect', 'on_mouseover', 'RightClick', 'popUpWidnow', 'Iframe', 'age_of_domain', 'DNSRecord', 'web_traffic', 'Page_Rank', 'Google_Index', 'Links_pointing_to_page', 'Statistical_report', 'Result']
+[2025-06-09 11:36:26,343] 60 - root - INFO - Numerical columns validation passed.

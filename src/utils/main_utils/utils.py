@@ -1,6 +1,6 @@
 import yaml
 import os , sys
-from src.exception.exception import CustomException
+from src.exception.exception import networkException
 from src.logging.logger import logging
 import numpy as np
 import dill

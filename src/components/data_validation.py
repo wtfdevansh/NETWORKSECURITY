@@ -1,17 +1,18 @@
 from src.entity.artifacts_entity import ArtifactsEntity, dataValidationArtifact
 from src.utils.main_utils.utils import read_yaml_file , write_yaml_file
-from src.entity.config_entity import dataValidationConfig
+from src.entity.config_entity import dataValidationConfig , trainingPipelineConfig
 from src.constant.training_pipeline import SCHEMA_FILE_PATH
 from src.logging.logger import logging
-from src.exception.exception import CustomException
+from src.exception.exception import networkException as CustomException
 from scipy.stats import ks_2samp
 import pandas as pd
 import os
+import sys
 
 class DataValidation:
     def __init__(self , data_validation_config: dataValidationConfig , data_ingestion_artifact: ArtifactsEntity):
         try:
-            self.data_validation_config = data_validation_config
+            self.data_validation_config = dataValidationConfig(trainingPipelineConfig())
             self.data_ingestion_artifact = data_ingestion_artifact
             self._schema_config = read_yaml_file(SCHEMA_FILE_PATH)
         except Exception as e:
@@ -116,10 +117,10 @@ class DataValidation:
             if not is_train_valid or not is_test_valid:
                 raise CustomException("Data validation failed: Number of columns mismatch", sys)
 
-            status = is_numerical_column(train_dataframe)
+            status = self.is_numerical_column(train_dataframe)
             if not status:
                 raise CustomException("Data validation failed: Numerical columns mismatch", sys)
-            status = is_numerical_column(test_dataframe)
+            status = self.is_numerical_column(test_dataframe)
             if not status:
                 raise CustomException("Data validation failed: Numerical columns mismatch", sys)
             
@@ -141,7 +142,7 @@ class DataValidation:
 
             logging.info("Data validation completed successfully.")
 
-            dataValidationArtifact = dataValidationArtifact(
+            ValidationArtifact = dataValidationArtifact(
                 validation_status=status,
                 valid_train_file_path=self.data_validation_config.train_file_path,
                 valid_test_file_path=self.data_validation_config.test_file_path,
@@ -149,8 +150,8 @@ class DataValidation:
                 invalid_test_file_path=self.data_validation_config.invalid_test_file_path,
                 drift_report_file_path=self.data_validation_config.drift_report_dir
             )
-            logging.info(f"Data validation artifact: {dataValidationArtifact}")
-            return dataValidationArtifact
+            logging.info(f"Data validation artifact: {ValidationArtifact}")
+            return ValidationArtifact
         except Exception as e:
             raise CustomException(e, sys)
 
