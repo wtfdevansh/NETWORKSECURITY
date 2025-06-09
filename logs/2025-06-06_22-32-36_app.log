@@ -1,0 +1,4 @@
+[2025-06-06 22:32:37,156] 12 - root - INFO - Starting the Network Security Pipeline
+[2025-06-06 22:32:37,156] 16 - root - INFO - Training Pipeline Config: <src.entity.config_entity.trainingPipelineConfig object at 0x7fe8da53e5d0>
+[2025-06-06 22:32:37,156] 20 - root - INFO - Data Ingestion Config: <src.entity.config_entity.dataIngestionConfig object at 0x7fe8934463c0>
+[2025-06-06 22:32:37,156] 29 - root - INFO - Data Ingestion Config: <src.entity.config_entity.dataIngestionConfig object at 0x7fe8933e7ed0>
