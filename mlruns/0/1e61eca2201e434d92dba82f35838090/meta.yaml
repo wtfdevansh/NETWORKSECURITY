@@ -1,0 +1,15 @@
+artifact_uri: file:///home/devu/NETWORKSECURITY/mlruns/0/1e61eca2201e434d92dba82f35838090/artifacts
+end_time: 1749541134144
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1e61eca2201e434d92dba82f35838090
+run_name: awesome-sloth-85
+run_uuid: 1e61eca2201e434d92dba82f35838090
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749541130755
+status: 3
+tags: []
+user_id: devu

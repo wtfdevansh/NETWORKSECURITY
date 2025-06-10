@@ -4,30 +4,45 @@ import sys
 from src.exception.exception import networkException as CustomException
 from src.logging.logger import logging
 
-from src.utils.main_utils.utils import read_yaml_file, write_yaml_file, save_numpy_array_data, save_object
+from src.utils.main_utils.utils import read_yaml_file, write_yaml_file, save_numpy_array_data, save_object , load_numpy_array_data
 
-from src.entity.config_entity import trainingPipelineConfig, modelTrainerConfig
+from src.entity.config_entity import trainingPipelineConfig, ModelTrainerConfig
 from src.entity.artifacts_entity import ModelTrainerArtifact, ClassificationMetricArtifact , DataTransformationArtifact
 
-from src.utils.main_utils.utils import save_object , load_object , evaluate_model
-from src.utils.main_utils.metrics import load_numpy_array_data
+from src.utils.main_utils.utils import save_object , load_object , evaluate_models
 from src.utils.ml_utils.metric.classification_metric import get_classification_score
 from src.utils.ml_utils.model.estimator import NetworkModel
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
+import mlflow
 
 
 
 class ModelTrainer:
-    def __init__(self , model_trainer_config: modelTrainerConfig, data_transformation_artifact: DataTransformationArtifact):
+    def __init__(self , model_trainer_config: ModelTrainerConfig, data_transformation_artifact: DataTransformationArtifact):
         try:
-            self.model_trainer_config = model_trainer_config
+            self.model_trainer_config = ModelTrainerConfig(training_pipeline_config=trainingPipelineConfig())
             self.data_transformation_artifact = data_transformation_artifact
         except Exception as e:
             raise CustomException(e, sys) from e
         
+    def track_mlflow(self, model, classification_metric):
+        """
+        Track the model and its metrics using MLflow.
+        """
+        with mlflow.start_run():
+            f1_score = classification_metric.f1_score
+            precision_score = classification_metric.precision_score
+            recall_score = classification_metric.recall_score
+
+            mlflow.log_metric("f1_score", f1_score)
+            mlflow.log_metric("precision_score", precision_score)
+            mlflow.log_metric("recall_score", recall_score)
+
+            mlflow.sklearn.log_model(model, "model")
+
 
     def train_model(self, x_train, y_train , x_test, y_test):
         models = {
@@ -65,13 +80,13 @@ class ModelTrainer:
             
         }
 
-        model_report:dict = evaluate_model(
-            x_train=x_train,
+        model_report:dict = evaluate_models(
+            X_train=x_train,
             y_train=y_train,
-            x_test=x_test,
+            X_test=x_test,
             y_test=y_test,
             models=models,
-            params=params
+            param=params
         )
 
         best_model_score = max(model_report.values())
@@ -83,29 +98,37 @@ class ModelTrainer:
         y_train_pred = best_model.predict(x_train)
         y_test_pred = best_model.predict(x_test)
 
-        classification_train_metric = get_classification_score(y_true=y_train, y_pred=y_train_pred, dataset="train")
-        classification_test_metric = get_classification_score(y_true=y_test, y_pred=y_test_pred, dataset="test")
+        classification_train_metric = get_classification_score(y_true=y_train, y_pred=y_train_pred)
+        classification_test_metric = get_classification_score(y_true=y_test, y_pred=y_test_pred)
 
         ## track the mlflow
+        self.track_mlflow(best_model , classification_train_metric)
+        self.track_mlflow(best_model , classification_test_metric)
+
+
 
         preprocessor = load_object(file_path=self.data_transformation_artifact.transformed_object_file_path)
 
         model_dir_path = os.path.join(
             self.model_trainer_config.trained_model_dir,
-            self.model_trainer_config.trained_model_name
         )
         os.makedirs(model_dir_path, exist_ok=True)
 
         Network_model = NetworkModel(preprocessor=preprocessor, model=best_model)
-        save_object(self.model_trainer_config.trained_model_file_path , obj = Network_model)
+        save_object((self.model_trainer_config.trained_model_file_path) , obj = Network_model)
 
         
         model_trainer_artifact = ModelTrainerArtifact(trained_model_file_path = self.model_trainer_config.trained_model_file_path,
-                                                    train_metric_artifact=ClassificationMetricArtifact(**classification_train_metric),
-                                                    test_metric_artifact=ClassificationMetricArtifact(**classification_test_metric))
+                                                    train_metric_artifact=ClassificationMetricArtifact(classification_train_metric.f1_score , classification_train_metric.precision_score, classification_train_metric.recall_score),
+                                                    test_metric_artifact=ClassificationMetricArtifact(classification_test_metric.f1_score , classification_test_metric.precision_score, classification_test_metric.recall_score),)
         
 
         logging.info(f"Model trainer artifact: {model_trainer_artifact}")
+        save_object(
+            file_path='final_model/model.pkl',
+            obj=best_model
+        )
+
         return model_trainer_artifact
          
 
@@ -114,8 +137,8 @@ class ModelTrainer:
             train_file_path = self.data_transformation_artifact.transformed_train_file_path
             test_file_path = self.data_transformation_artifact.transformed_test_file_path
 
-            train_arr = load_numpy_array_data(file_path=train_file_path, array_name="train")
-            test_arr = load_numpy_array_data(file_path=test_file_path, array_name="test")
+            train_arr = load_numpy_array_data(file_path=train_file_path)
+            test_arr = load_numpy_array_data(file_path=test_file_path)
 
             x_train = train_arr[:, :-1]
             y_train = train_arr[:, -1]

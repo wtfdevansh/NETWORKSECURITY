@@ -5,6 +5,8 @@ from src.logging.logger import logging
 import numpy as np
 import dill
 import pickle
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import r2_score
 
 
 def read_yaml_file(file_path: str) -> dict:

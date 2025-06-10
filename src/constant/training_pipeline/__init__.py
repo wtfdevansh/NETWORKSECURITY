@@ -1,4 +1,5 @@
 import os
+import numpy as np
 
 DATA_INGESTION_DIR_NAME: str = "data_ingestion"
 DATA_INGESTION_FEATURE_STORE_DIR_NAME: str = "feature_store"

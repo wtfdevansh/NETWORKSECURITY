@@ -2,10 +2,10 @@ from src.exception.exception import networkException as CustomException
 import os
 import sys
 from src.utils.main_utils.utils import read_yaml_file, write_yaml_file, save_numpy_array_data, save_object
-from src.entity.config_entity import trainingPipelineConfig, dataTransformationConfig
+from src.entity.config_entity import trainingPipelineConfig, DataTransformationConfig
 from src.logging.logger import logging
 import pandas as pd
-from src.entity.artifacts_entity import dataValidationArtifact, dataTransformationArtifact
+from src.entity.artifacts_entity import dataValidationArtifact, DataTransformationArtifact
 
 from src.constant.training_pipeline import TARGET_COLUMN , DATA_TRANSFORMATION_IMPUTER_PARAMS
 import numpy as np
@@ -15,7 +15,7 @@ from sklearn.impute import KNNImputer
 
 
 class DataTransformation:
-    def __init__(slef , data_transformation_config: dataTransformationConfig,
+    def __init__(self , data_transformation_config: DataTransformationConfig(training_pipeline_config=trainingPipelineConfig()),
                  data_validation_artifact: dataValidationArtifact):
         try:
             self.data_transformation_config = data_transformation_config
@@ -40,12 +40,17 @@ class DataTransformation:
 
             imputer: KNNImputer = KNNImputer(**DATA_TRANSFORMATION_IMPUTER_PARAMS)
             processor: Pipeline = Pipeline([("imputer", imputer)])
+
+            save_object(
+                file_path="final_model/preprocessor.pkl",
+                obj=processor
+            )
             return processor
         except Exception as e:
             raise CustomException(f"Error creating data transformation object: {e}", sys) from e
         
 
-    def initiate_data_transformation(self)-> dataTransformationArtifact:
+    def initiate_data_transformation(self)-> DataTransformationArtifact:
         try:
             logging.info("Entered the initiate_data_transformation method of DataTransformation class")
             logging.info("Loading train and test data")
@@ -89,7 +94,7 @@ class DataTransformation:
             )
 
             ##preparing the artifact
-            data_transformation_artifact = dataTransformationArtifact(
+            data_transformation_artifact = DataTransformationArtifact(
                 transformed_train_file_path=self.data_transformation_config.transformed_train_file_path,
                 transformed_test_file_path=self.data_transformation_config.transformed_test_file_path,
                 transformed_object_file_path=self.data_transformation_config.transformed_object_file_path

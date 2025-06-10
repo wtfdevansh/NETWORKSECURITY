@@ -1,0 +1,15 @@
+artifact_uri: file:///home/devu/NETWORKSECURITY/mlruns/0/01650e4ccf554f4a903f45672d777140/artifacts
+end_time: 1749541136700
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 01650e4ccf554f4a903f45672d777140
+run_name: valuable-shad-184
+run_uuid: 01650e4ccf554f4a903f45672d777140
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749541134146
+status: 3
+tags: []
+user_id: devu

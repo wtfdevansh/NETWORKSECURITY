@@ -1,0 +1,15 @@
+artifact_uri: file:///home/devu/NETWORKSECURITY/mlruns/0/d901738e7d484a8ba36ec4ec4891782c/artifacts
+end_time: 1749540391500
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d901738e7d484a8ba36ec4ec4891782c
+run_name: glamorous-perch-109
+run_uuid: d901738e7d484a8ba36ec4ec4891782c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749540389124
+status: 3
+tags: []
+user_id: devu

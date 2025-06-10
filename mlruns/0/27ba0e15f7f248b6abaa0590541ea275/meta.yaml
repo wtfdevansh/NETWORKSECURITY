@@ -1,0 +1,15 @@
+artifact_uri: file:///home/devu/NETWORKSECURITY/mlruns/0/27ba0e15f7f248b6abaa0590541ea275/artifacts
+end_time: 1749540389121
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 27ba0e15f7f248b6abaa0590541ea275
+run_name: exultant-grouse-154
+run_uuid: 27ba0e15f7f248b6abaa0590541ea275
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749540385910
+status: 3
+tags: []
+user_id: devu

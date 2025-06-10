@@ -1,0 +1,15 @@
+artifact_uri: file:///home/devu/NETWORKSECURITY/mlruns/0/1bb01b31d0f44d5d91c4d30a51791d66/artifacts
+end_time: 1749542129091
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1bb01b31d0f44d5d91c4d30a51791d66
+run_name: treasured-doe-51
+run_uuid: 1bb01b31d0f44d5d91c4d30a51791d66
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749542126631
+status: 3
+tags: []
+user_id: devu

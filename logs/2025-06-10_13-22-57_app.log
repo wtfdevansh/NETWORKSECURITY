@@ -1,0 +1,45 @@
+[2025-06-10 13:23:00,193] 18 - root - INFO - Starting the Network Security Pipeline
+[2025-06-10 13:23:00,194] 22 - root - INFO - Training Pipeline Config: <src.entity.config_entity.trainingPipelineConfig object at 0x7fc010f034d0>
+[2025-06-10 13:23:00,194] 26 - root - INFO - Data Ingestion Config: <src.entity.config_entity.dataIngestionConfig object at 0x7fc0140e06e0>
+[2025-06-10 13:23:00,194] 29 - root - INFO - Data Ingestion Config: <src.entity.config_entity.dataIngestionConfig object at 0x7fc010f03610>
+[2025-06-10 13:23:06,052] 41 - root - INFO - Raw data fetched from MongoDB: (11055, 32)
+[2025-06-10 13:23:06,054] 45 - root - INFO - Dropped '_id' column from DataFrame
+[2025-06-10 13:23:06,115] 61 - root - INFO - Raw data exported to artifacts/2025-06-10-13-22-57/data_ingestion/feature_store/phisingData.csv
+[2025-06-10 13:23:06,117] 71 - root - INFO - Train DataFrame Shape: (8844, 31)
+[2025-06-10 13:23:06,117] 72 - root - INFO - Test DataFrame Shape: (2211, 31)
+[2025-06-10 13:23:06,118] 75 - root - INFO - Train File Path: artifacts/2025-06-10-13-22-57/data_ingestion/ingested/test.csv
+[2025-06-10 13:23:06,118] 76 - root - INFO - Test File Path: artifacts/2025-06-10-13-22-57/data_ingestion/ingested/train.csv
+[2025-06-10 13:23:06,152] 81 - root - INFO - Train and test datasets created: artifacts/2025-06-10-13-22-57/data_ingestion/ingested/test.csv, artifacts/2025-06-10-13-22-57/data_ingestion/ingested/train.csv
+[2025-06-10 13:23:06,152] 98 - root - INFO - Artifacts Entity: ArtifactsEntity(train_file_path='artifacts/2025-06-10-13-22-57/data_ingestion/ingested/test.csv', test_file_path='artifacts/2025-06-10-13-22-57/data_ingestion/ingested/train.csv')
+[2025-06-10 13:23:06,172] 36 - root - INFO - Expected number of columns: 31
+[2025-06-10 13:23:06,172] 37 - root - INFO - Actual number of columns: 31
+[2025-06-10 13:23:06,172] 36 - root - INFO - Expected number of columns: 31
+[2025-06-10 13:23:06,172] 37 - root - INFO - Actual number of columns: 31
+[2025-06-10 13:23:06,173] 56 - root - INFO - Expected numerical columns: ['having_IP_Address', 'URL_Length', 'Shortining_Service', 'having_At_Symbol', 'double_slash_redirecting', 'Prefix_Suffix', 'having_Sub_Domain', 'SSLfinal_State', 'Domain_registeration_length', 'Favicon', 'port', 'HTTPS_token', 'Request_URL', 'URL_of_Anchor', 'Links_in_tags', 'SFH', 'Submitting_to_email', 'Abnormal_URL', 'Redirect', 'on_mouseover', 'RightClick', 'popUpWidnow', 'Iframe', 'age_of_domain', 'DNSRecord', 'web_traffic', 'Page_Rank', 'Google_Index', 'Links_pointing_to_page', 'Statistical_report', 'Result']
+[2025-06-10 13:23:06,173] 57 - root - INFO - Actual numerical columns: ['having_IP_Address', 'URL_Length', 'Shortining_Service', 'having_At_Symbol', 'double_slash_redirecting', 'Prefix_Suffix', 'having_Sub_Domain', 'SSLfinal_State', 'Domain_registeration_length', 'Favicon', 'port', 'HTTPS_token', 'Request_URL', 'URL_of_Anchor', 'Links_in_tags', 'SFH', 'Submitting_to_email', 'Abnormal_URL', 'Redirect', 'on_mouseover', 'RightClick', 'popUpWidnow', 'Iframe', 'age_of_domain', 'DNSRecord', 'web_traffic', 'Page_Rank', 'Google_Index', 'Links_pointing_to_page', 'Statistical_report', 'Result']
+[2025-06-10 13:23:06,173] 61 - root - INFO - Numerical columns validation passed.
+[2025-06-10 13:23:06,173] 56 - root - INFO - Expected numerical columns: ['having_IP_Address', 'URL_Length', 'Shortining_Service', 'having_At_Symbol', 'double_slash_redirecting', 'Prefix_Suffix', 'having_Sub_Domain', 'SSLfinal_State', 'Domain_registeration_length', 'Favicon', 'port', 'HTTPS_token', 'Request_URL', 'URL_of_Anchor', 'Links_in_tags', 'SFH', 'Submitting_to_email', 'Abnormal_URL', 'Redirect', 'on_mouseover', 'RightClick', 'popUpWidnow', 'Iframe', 'age_of_domain', 'DNSRecord', 'web_traffic', 'Page_Rank', 'Google_Index', 'Links_pointing_to_page', 'Statistical_report', 'Result']
+[2025-06-10 13:23:06,173] 57 - root - INFO - Actual numerical columns: ['having_IP_Address', 'URL_Length', 'Shortining_Service', 'having_At_Symbol', 'double_slash_redirecting', 'Prefix_Suffix', 'having_Sub_Domain', 'SSLfinal_State', 'Domain_registeration_length', 'Favicon', 'port', 'HTTPS_token', 'Request_URL', 'URL_of_Anchor', 'Links_in_tags', 'SFH', 'Submitting_to_email', 'Abnormal_URL', 'Redirect', 'on_mouseover', 'RightClick', 'popUpWidnow', 'Iframe', 'age_of_domain', 'DNSRecord', 'web_traffic', 'Page_Rank', 'Google_Index', 'Links_pointing_to_page', 'Statistical_report', 'Result']
+[2025-06-10 13:23:06,174] 61 - root - INFO - Numerical columns validation passed.
+[2025-06-10 13:23:06,230] 134 - root - INFO - Data validation passed. Saving valid data files.
+[2025-06-10 13:23:06,265] 143 - root - INFO - Data validation completed successfully.
+[2025-06-10 13:23:06,266] 153 - root - INFO - Data validation artifact: dataValidationArtifact(validation_status=True, valid_train_file_path='artifacts/2025-06-10-13-22-57/data_validation/validated/test.csv', valid_test_file_path='artifacts/2025-06-10-13-22-57/data_validation/validated/train.csv', invalid_train_file_path='artifacts/2025-06-10-13-22-57/data_validation/invalid/test.csv', invalid_test_file_path='artifacts/2025-06-10-13-22-57/data_validation/invalid/train.csv', drift_report_file_path='artifacts/2025-06-10-13-22-57/data_validation/drift_report/report.yaml')
+[2025-06-10 13:23:06,266] 46 - root - INFO - model transformation started....
+[2025-06-10 13:23:06,269] 55 - root - INFO - Entered the initiate_data_transformation method of DataTransformation class
+[2025-06-10 13:23:06,269] 56 - root - INFO - Loading train and test data
+[2025-06-10 13:23:06,286] 37 - root - INFO - Entered the get_data_transformation_object method of DataTransformation class
+[2025-06-10 13:23:06,286] 56 - root - INFO - Entered the save_object method of MainUtils class
+[2025-06-10 13:23:06,286] 60 - root - INFO - Exited the save_object method of MainUtils class
+[2025-06-10 13:23:06,297] 56 - root - INFO - Entered the save_object method of MainUtils class
+[2025-06-10 13:23:06,301] 60 - root - INFO - Exited the save_object method of MainUtils class
+[2025-06-10 13:23:06,301] 50 - root - INFO - model transformation completed....
+[2025-06-10 13:23:06,301] 53 - root - INFO - model trainer started....
+[2025-06-10 13:25:23,160] 96 - root - INFO - Best model found: Random Forest with score: 0.8613367573616058
+[2025-06-10 13:25:23,359] 17 - root - INFO - Calculating classification metrics
+[2025-06-10 13:25:23,364] 17 - root - INFO - Calculating classification metrics
+[2025-06-10 13:25:29,096] 56 - root - INFO - Entered the save_object method of MainUtils class
+[2025-06-10 13:25:29,132] 60 - root - INFO - Exited the save_object method of MainUtils class
+[2025-06-10 13:25:29,132] 126 - root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='artifacts/2025-06-10-13-22-57/model_trainer/trained_model/model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.9907255879707472, precision_score=0.9907332869840964, recall_score=0.9907281772953415), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9655981598403597, precision_score=0.9656993217911315, recall_score=0.9656264133876075))
+[2025-06-10 13:25:29,133] 56 - root - INFO - Entered the save_object method of MainUtils class
+[2025-06-10 13:25:29,173] 60 - root - INFO - Exited the save_object method of MainUtils class
+[2025-06-10 13:25:29,174] 57 - root - INFO - model trainer completed....

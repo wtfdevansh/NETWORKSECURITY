@@ -1,0 +1,15 @@
+artifact_uri: file:///home/devu/NETWORKSECURITY/mlruns/0/5103950b61f249398e285280e3701f54/artifacts
+end_time: 1749541738815
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5103950b61f249398e285280e3701f54
+run_name: omniscient-pig-373
+run_uuid: 5103950b61f249398e285280e3701f54
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749541736351
+status: 3
+tags: []
+user_id: devu

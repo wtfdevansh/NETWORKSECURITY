@@ -1,0 +1,15 @@
+artifact_uri: file:///home/devu/NETWORKSECURITY/mlruns/0/820095472ca042cf94332975c40318ba/artifacts
+end_time: 1749542126629
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 820095472ca042cf94332975c40318ba
+run_name: incongruous-colt-175
+run_uuid: 820095472ca042cf94332975c40318ba
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749542123417
+status: 3
+tags: []
+user_id: devu

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/devu/NETWORKSECURITY/mlruns/0/893f53f6aa934381b7699dfc0a8dd01d/artifacts
+end_time: 1749540755690
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 893f53f6aa934381b7699dfc0a8dd01d
+run_name: monumental-wasp-332
+run_uuid: 893f53f6aa934381b7699dfc0a8dd01d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749540752353
+status: 3
+tags: []
+user_id: devu
