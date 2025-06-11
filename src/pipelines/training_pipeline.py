@@ -9,11 +9,16 @@ from src.components.data_validation import DataValidation
 from src.components.data_transformation import DataTransformation
 from src.components.model_trainer import ModelTrainer
 
+from src.constant.training_pipeline import TRAINING_BUCKET_NAME
+
 from src.entity.artifacts_entity import ArtifactsEntity, dataValidationArtifact , DataTransformationArtifact, ModelTrainerArtifact
+
+from src.cloud.s3_syncer import S3Sync
 
 class TrainingPipeline:
     def __init__(self, config: trainingPipelineConfig):
         self.config = config
+        self.s3_sync = S3Sync()
 
     def run(self):
         try:
@@ -39,6 +44,21 @@ class TrainingPipeline:
             model_trainer_artifact = ModelTrainer(model_trainer_config , data_transformation_artifact)
             
             logging.info("Training pipeline completed successfully.")   
+
+            #sync save mode dir to s3
+
+            aws_bucket_url  = f"s3://{TRAINING_BUCKET_NAME}/artifacts/{self.config.timestamp}"
+            self.s3_sync.sync_folder_to_s3(folder=self.config.artifact_dir, aws_bucket_url=aws_bucket_url)
+            logging.info(f"Artifacts synced to S3 bucket: {aws_bucket_url}")
+
+            aws_bucket_url  = f"s3://{TRAINING_BUCKET_NAME}/model/{self.config.timestamp}"
+            self.s3_sync.sync_folder_to_s3(folder=model_trainer_artifact.model_dir, aws_bucket_url=aws_bucket_url)
+            logging.info(f"Model synced to S3 bucket: {aws_bucket_url}")
+
+
+
+
+
         except Exception as e:
             logging.error(f"An error occurred in the training pipeline: {e}")
             raise networkException(e)
