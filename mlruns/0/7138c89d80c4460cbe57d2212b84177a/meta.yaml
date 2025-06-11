@@ -1,0 +1,15 @@
+artifact_uri: file:///home/devu/NETWORKSECURITY/mlruns/0/7138c89d80c4460cbe57d2212b84177a/artifacts
+end_time: 1749607375631
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7138c89d80c4460cbe57d2212b84177a
+run_name: whimsical-fawn-253
+run_uuid: 7138c89d80c4460cbe57d2212b84177a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749607372737
+status: 3
+tags: []
+user_id: devu

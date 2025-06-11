@@ -1,0 +1,15 @@
+artifact_uri: file:///home/devu/NETWORKSECURITY/mlruns/0/5afb11e466df4b4d8b98f976560dfe9c/artifacts
+end_time: 1749607377737
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5afb11e466df4b4d8b98f976560dfe9c
+run_name: trusting-dolphin-982
+run_uuid: 5afb11e466df4b4d8b98f976560dfe9c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749607375633
+status: 3
+tags: []
+user_id: devu

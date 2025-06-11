@@ -29,6 +29,7 @@ import pandas as pd
 from src.utils.main_utils.utils import load_object
 
 from src.constant.training_pipeline import DATA_INGESTION_COLLECTION_NAME , DATA_INGESTION_DATABASE_NAME
+from src.entity.config_entity import trainingPipelineConfig
 from fastapi.templating import Jinja2Templates
 templates = Jinja2Templates(directory="./templates")
 
@@ -55,7 +56,7 @@ async def index():
 async def train():
     try:
         logging.info("Training pipeline started...")
-        training_pipeline = TrainingPipeline()
+        training_pipeline = TrainingPipeline(trainingPipelineConfig())
         training_pipeline.run()
         logging.info("Training pipeline completed successfully.")
         return {"message": "Training completed successfully."}

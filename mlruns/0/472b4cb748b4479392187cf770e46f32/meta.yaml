@@ -1,0 +1,15 @@
+artifact_uri: file:///home/devu/NETWORKSECURITY/mlruns/0/472b4cb748b4479392187cf770e46f32/artifacts
+end_time: 1749607128258
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 472b4cb748b4479392187cf770e46f32
+run_name: gifted-dog-654
+run_uuid: 472b4cb748b4479392187cf770e46f32
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749607125825
+status: 3
+tags: []
+user_id: devu

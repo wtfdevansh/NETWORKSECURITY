@@ -21,6 +21,8 @@ class trainingPipelineConfig:
         
         self.test_file_name = training_pipeline.TEST_FILE_NAME
 
+        self.model_dir=os.path.join("final_model")
+
 
 
 
