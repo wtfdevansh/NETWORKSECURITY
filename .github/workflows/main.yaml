@@ -20,48 +20,48 @@ jobs:
             run: echo "Linting code..."
 
           
-    build-and-push-ecr-image:
-        name: continous Delievery
-        needs: integeration
-        runs-on: ubuntu-latest
-        steps:
-          - name: Checkout code
-            uses: actions/checkout@v2
+    # build-and-push-ecr-image:
+    #     name: continous Delievery
+    #     needs: integeration
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #       - name: Checkout code
+    #         uses: actions/checkout@v2
 
-          - name: install utilities
-            run: |
-              echo "Building and pushing Docker image..."
-              # Add your Docker build and push commands here
+    #       - name: install utilities
+    #         run: |
+    #           echo "Building and pushing Docker image..."
+    #           # Add your Docker build and push commands here
 
-              sudo apt-get update
-              sudo apt-get install -y jq unzip
+    #           sudo apt-get update
+    #           sudo apt-get install -y jq unzip
 
-          - name: configure aws credentials
-            uses: aws-actions/configure-aws-credentials@v1
-            with:
-                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-                aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-                aws-region: ${{ secrets.AWS_REGION }}
+    #       - name: configure aws credentials
+    #         uses: aws-actions/configure-aws-credentials@v1
+    #         with:
+    #             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #             aws-region: ${{ secrets.AWS_REGION }}
 
-          - name: login to aws ecr
-            id: login-ecr
-            uses: aws-actions/amazon-ecr-login@v1
+    #       - name: login to aws ecr
+    #         id: login-ecr
+    #         uses: aws-actions/amazon-ecr-login@v1
 
-          - name: build and push ecr image
-            id: build-image
-            env:
-              ECR_REGISTRY: ${{steps.login-ecr.outputs.registry}}
-              ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
-              IMAGE_TAG: lastest
-            run: |
+    #       - name: build and push ecr image
+    #         id: build-image
+    #         env:
+    #           ECR_REGISTRY: ${{steps.login-ecr.outputs.registry}}
+    #           ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
+    #           IMAGE_TAG: lastest
+    #         run: |
 
-                echo "Building Docker image..."
-                docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+    #             echo "Building Docker image..."
+    #             docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
     
-                echo "Pushing Docker image to ECR..."
-                docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+    #             echo "Pushing Docker image to ECR..."
+    #             docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
     
-                echo "Docker image pushed successfully!"
+    #             echo "Docker image pushed successfully!"
 
     Continuous-Deployment:
      needs: build-and-push-ecr-image
@@ -84,7 +84,7 @@ jobs:
       
       - name: Pull latest images
         run: |
-         docker pull ${{steps.login-ecr.outputs.registry}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+         docker pull 576627597897.dkr.ecr.us-east-1.amazonaws.com/networksecurity:lastest
          
       #- name: Stop and remove  container if running
        # run: |
